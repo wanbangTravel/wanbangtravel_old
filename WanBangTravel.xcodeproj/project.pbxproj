@@ -24,7 +24,6 @@
 		77C2264A1CB6812900D67DB7 /* AlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C226491CB6812900D67DB7 /* AlertUtil.m */; };
 		77EBCB7D1CB65F3400130206 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EBCB7C1CB65F3400130206 /* BaseTableViewController.m */; };
 		77EBCB801CB65F4A00130206 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EBCB7F1CB65F4A00130206 /* HomeViewController.m */; };
-		77FC25BA1CB5475900FAA984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77FC25B91CB5475900FAA984 /* Assets.xcassets */; };
 		77FC25C81CB5475900FAA984 /* WanBangTravelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC25C71CB5475900FAA984 /* WanBangTravelTests.m */; };
 		77FC25E01CB548AF00FAA984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77FC25DF1CB548AF00FAA984 /* Main.storyboard */; };
 		77FC25ED1CB54A1900FAA984 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FC25E71CB5493900FAA984 /* main.m */; };
@@ -73,7 +72,6 @@
 		77EBCB7E1CB65F4A00130206 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		77EBCB7F1CB65F4A00130206 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		77FC25AA1CB5475900FAA984 /* WanBangTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WanBangTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		77FC25B91CB5475900FAA984 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77FC25BC1CB5475900FAA984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77FC25C31CB5475900FAA984 /* WanBangTravelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WanBangTravelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FC25C71CB5475900FAA984 /* WanBangTravelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WanBangTravelTests.m; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 				77FC25DC1CB5488000FAA984 /* Storage */,
 				77FC25DD1CB5488000FAA984 /* Util */,
 				77FC25DE1CB5488000FAA984 /* View */,
-				77FC25B91CB5475900FAA984 /* Assets.xcassets */,
 			);
 			path = WanBangTravel;
 			sourceTree = "<group>";
@@ -449,7 +446,6 @@
 				77FC25E01CB548AF00FAA984 /* Main.storyboard in Resources */,
 				77BED4F91CBF9C3B003DD789 /* AdDataPlist.plist in Resources */,
 				7737F7541CC0C038001CCE32 /* HomeTableViewCell.xib in Resources */,
-				77FC25BA1CB5475900FAA984 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
