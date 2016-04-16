@@ -6,8 +6,8 @@
 //  Copyright © 2016年 mmt&sf. All rights reserved.
 //
 
-#import "BaseTableTableViewController.h"
+#import "BaseTableViewController.h"
 
-@interface HomeViewController : BaseTableTableViewController
+@interface HomeViewController : BaseTableViewController
 
 @end

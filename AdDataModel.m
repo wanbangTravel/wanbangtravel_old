@@ -14,31 +14,24 @@
 
 @implementation AdDataModel
 
-- (instancetype)initWithImageName
-{
-    self = [super init];
-    if (self)
-    {
+- (instancetype)initWithImageName{
+    if (self = [super init]){
         _imageNameArray = [NSArray arrayWithContentsOfFile:PATH][0];
     }
     return self;
 }
 
-- (instancetype)initWithImageNameAndAdTitleArray
-{
+- (instancetype)initWithImageNameAndAdTitleArray{
     _adTitleArray = [NSArray arrayWithContentsOfFile:PATH][1];
-    
     return [self initWithImageName];
 }
 
-+ (id)adDataModelWithImageName
-{
-    return [[self alloc]initWithImageName];
++ (id)adDataModelWithImageName{
+    return [[self alloc] initWithImageName];
 }
 
-+ (id)adDataModelWithImageNameAndAdTitleArray
-{
-    return [[self alloc]initWithImageNameAndAdTitleArray];
++ (id)adDataModelWithImageNameAndAdTitleArray{
+    return [[self alloc] initWithImageNameAndAdTitleArray];
 }
 @end
 

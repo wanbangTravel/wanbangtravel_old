@@ -10,8 +10,8 @@
 
 @interface AdDataModel : NSObject
 
-@property (retain,nonatomic,readonly) NSArray * imageNameArray;
-@property (retain,nonatomic,readonly) NSArray * adTitleArray;
+@property (strong,nonatomic,readonly) NSArray * imageNameArray;
+@property (strong,nonatomic,readonly) NSArray * adTitleArray;
 
 - (instancetype)initWithImageName;
 - (instancetype)initWithImageNameAndAdTitleArray;

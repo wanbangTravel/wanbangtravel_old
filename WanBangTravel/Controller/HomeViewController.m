@@ -9,16 +9,17 @@
 #import "HomeViewController.h"
 #import "AdScrollView.h"
 #import "AdDataModel.h"
+#import "ButtonsView.h"
+#import "ScrollTitleView.h"
+#import "CollectionView.h"
 
-#define UISCREENHEIGHT  self.view.bounds.size.height
-#define UISCREENWIDTH  self.view.bounds.size.width
+#define UISCREENHEIGHT  self.view.frame.size.height
+#define UISCREENWIDTH  self.view.frame.size.width
 
-@interface HomeViewController (){
+
+@interface HomeViewController ()<UITableViewDataSource,UITableViewDelegate>{
     UIScreen *mainScreen;
     UIScrollView *_scrollView;
-    UIImageView *_previousView;
-    UIImageView *_currentView;
-    UIImageView *_nextView;
 }
 @property (strong, nonatomic) IBOutlet UITableView *homeTableView;
 
@@ -44,13 +45,25 @@
     //AlertUtil *alert = [[AlertUtil alloc] init];
     //[alert showAlertViewWithTitle:@"tishi" andMsg:util.cityName];
     mainScreen = [UIScreen mainScreen];
-    //CGFloat x = mainScreen.bounds.size.width -
     
     UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(100, 5, 30, 30)];
     [searchBar setPlaceholder:@"请输入搜索内容"];
     self.navigationItem.titleView = searchBar;
-    
+
     [self createScrollView];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UISCREENWIDTH, 700)];
+    [headerView addSubview:_scrollView];
+    
+    ButtonsView *btnsView = [[ButtonsView alloc] initWithFrame:CGRectMake(0, 150, UISCREENWIDTH, 200) andRows:2 andColumns:4];
+    [headerView addSubview:btnsView];
+    
+    ScrollTitleView *scrollTextView = [[ScrollTitleView alloc] initWithFrame:CGRectMake(0, 350, UISCREENWIDTH, 100)];
+    [headerView addSubview:scrollTextView];
+    
+    CollectionView *collectionView = [[CollectionView alloc] initWithFrame:CGRectMake(0, 450, UISCREENWIDTH, 200)];
+    [headerView addSubview:collectionView];
+    self.tableView.tableHeaderView = headerView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,70 +80,41 @@
  }
  */
 
-//
-//- (void)setScrollView {
-//    CGSize screenSize = [UIScreen mainScreen].bounds.size;
-//    UIScrollView *scrollView = [[UIScrollView alloc] init];
-//    scrollView.frame = CGRectMake(0, 20, screenSize.width, 200);
-//
-//    _scrollView = scrollView;
-//    [_scrollView setContentSize:CGSizeMake(screenSize.width, 200)];
-//    //  设置隐藏横向条
-//    _scrollView.showsHorizontalScrollIndicator = NO;
-//    //  设置自动分页
-//    _scrollView.pagingEnabled = YES;
-//    //  设置代理
-//    _scrollView.delegate = self;
-//    //  设置当前点
-//    _scrollView.contentOffset = CGPointMake(200, 0);
-//    //  设置是否有边界
-//    _scrollView.bounces = NO;
-//    //  初始化当前视图
-//    UIImageView *currentImageView =[[UIImageView alloc] init];
-//    //NSString *imageURL = [[NSBundle mainBundle] pathForResource:@"image0" ofType:@"png"];
-//    //currentImageView.image = [UIImage imageNamed:@"image0.png"];
-//    currentImageView.backgroundColor  = [UIColor redColor];
-//    [_scrollView addSubview:currentImageView];
-//    _currentView = currentImageView;
-//    _currentView.frame = CGRectMake(screenSize.width, 0, screenSize.width, 200);
-//    _currentView.contentMode = UIViewContentModeScaleAspectFill;
-//    //  初始化下一个视图
-//    UIImageView *nextImageView = [[UIImageView alloc] init];
-//    nextImageView.image = [UIImage imageNamed:@"image1.png"];
-//    [_scrollView addSubview:nextImageView];
-//    _nextView = nextImageView;
-//    _nextView.frame = CGRectMake(screenSize.width * 2, 0, screenSize.width, 200);
-//    _nextView.contentMode = UIViewContentModeScaleAspectFill;
-//    //  初始化上一个视图
-//    UIImageView *preImageView =[[UIImageView alloc] init];
-//    preImageView.image = [UIImage imageNamed:@"image2.png"];
-//    preImageView.frame = CGRectMake(0, 0, screenSize.width, 200);
-//    [_scrollView addSubview:preImageView];
-//    _previousView = preImageView;
-//    _previousView.contentMode =UIViewContentModeScaleAspectFill;
-//
-//    self.tableView.tableHeaderView = scrollView;
-//}
-
 #pragma mark - 构建广告滚动视图
 - (void)createScrollView
 {
-    AdScrollView *scrollView = [[AdScrollView alloc]initWithFrame:CGRectMake(0, 40, UISCREENWIDTH, 150)];
+    AdScrollView *scrollView = [[AdScrollView alloc] initWithFrame:CGRectMake(0, 0, UISCREENWIDTH, 150)];
     AdDataModel *dataModel = [AdDataModel adDataModelWithImageNameAndAdTitleArray];
     //如果滚动视图的父视图由导航控制器控制,必须要设置该属性(ps,猜测这是为了正常显示,导航控制器内部设置了UIEdgeInsetsMake(64, 0, 0, 0))
-    scrollView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
-    
-    NSLog(@"%@",dataModel.adTitleArray);
+    //scrollView.contentInset = UIEdgeInsetsMake(-64, 0, 0, 0);
     scrollView.imageNameArray = dataModel.imageNameArray;
-    scrollView.PageControlShowStyle = UIPageControlShowStyleRight;
-    scrollView.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
-    
     [scrollView setAdTitleArray:dataModel.adTitleArray withShowStyle:AdTitleShowStyleLeft];
-    
-    scrollView.pageControl.currentPageIndicatorTintColor = [UIColor purpleColor];
-    //[self.view addSubview:scrollView];
-    //_scrollView = scrollView;
-    self.tableView.tableHeaderView = scrollView;
+    scrollView.PageControlShowStyle = UIPageControlShowStyleCenter;
+    scrollView.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+    scrollView.pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+    _scrollView = scrollView;
 }
 
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 4;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //IQTEstatic NSString *reuseId = @"homeTableViewCell";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    [cell setBackgroundColor:[UIColor purpleColor]];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
 @end

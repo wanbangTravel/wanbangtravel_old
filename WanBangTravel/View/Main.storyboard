@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="-1459" y="-20"/>
         </scene>
-        <!--Self View Controller-->
+        <!--View Controller-->
         <scene sceneID="qbp-WP-2bG">
             <objects>
-                <viewController id="anj-7W-GcY" customClass="SelfViewController" sceneMemberID="viewController">
+                <viewController id="anj-7W-GcY" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8NS-VC-7Zb"/>
                         <viewControllerLayoutGuide type="bottom" id="nFZ-sG-6UR"/>
@@ -140,15 +140,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Ku0-xJ-62w"/>
+                    <connections>
+                        <outlet property="homeTableView" destination="x6j-lo-srI" id="01x-Wp-H1F"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufr-cv-5Cp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2235" y="795"/>
         </scene>
-        <!--Travel Note View Controller-->
+        <!--View Controller-->
         <scene sceneID="EpC-YU-xQE">
             <objects>
-                <viewController id="0Kc-Aa-eKK" customClass="TravelNoteViewController" sceneMemberID="viewController">
+                <viewController id="0Kc-Aa-eKK" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kD8-uh-jae"/>
                         <viewControllerLayoutGuide type="bottom" id="yI2-Aq-OsN"/>
@@ -164,10 +167,10 @@
             </objects>
             <point key="canvasLocation" x="-1459" y="800"/>
         </scene>
-        <!--Surround View Controller-->
+        <!--View Controller-->
         <scene sceneID="hcF-Li-T3j">
             <objects>
-                <viewController id="qJV-Cv-7fd" customClass="SurroundViewController" sceneMemberID="viewController">
+                <viewController id="qJV-Cv-7fd" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xl3-Nf-P6p"/>
                         <viewControllerLayoutGuide type="bottom" id="Voy-sf-Kat"/>

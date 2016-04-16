@@ -8,16 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, UIPageControlShowStyle)
-{
+typedef NS_ENUM(NSUInteger, UIPageControlShowStyle){
     UIPageControlShowStyleNone,//default
     UIPageControlShowStyleLeft,
     UIPageControlShowStyleCenter,
     UIPageControlShowStyleRight,
 };
 
-typedef NS_ENUM(NSUInteger, AdTitleShowStyle)
-{
+typedef NS_ENUM(NSUInteger, AdTitleShowStyle){
     AdTitleShowStyleNone,
     AdTitleShowStyleLeft,
     AdTitleShowStyleCenter,
@@ -26,9 +24,9 @@ typedef NS_ENUM(NSUInteger, AdTitleShowStyle)
 
 @interface AdScrollView : UIScrollView<UIScrollViewDelegate>
 
-@property (retain,nonatomic,readonly) UIPageControl * pageControl;
-@property (retain,nonatomic,readwrite) NSArray * imageNameArray;
-@property (retain,nonatomic,readonly) NSArray * adTitleArray;
+@property (strong,nonatomic,readonly) UIPageControl * pageControl;
+@property (strong,nonatomic,readwrite) NSArray * imageNameArray;
+@property (strong,nonatomic,readonly) NSArray * adTitleArray;
 @property (assign,nonatomic,readwrite) UIPageControlShowStyle  PageControlShowStyle;
 @property (assign,nonatomic,readonly) AdTitleShowStyle  adTitleStyle;
 
